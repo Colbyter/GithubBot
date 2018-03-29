@@ -18,3 +18,4 @@ The bot listens for commits and comments on a particular repo, and then posts th
     Repo
     Commit id
    
+Note: You will need to set up webhook on Github for these events.
