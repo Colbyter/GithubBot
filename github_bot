@@ -40,7 +40,7 @@ def githubCommits():
             pusher_name = json_file['pusher']['name']
             repo_name = json_file['repository']['name']
             results = """**Author**: {0}\n\n**Committer**: {1}\n\n**Pusher**: {2}\n\n**Commit Message**: {3}\n\n**Commit id**: {4}\n\n**Time**: {5}\n\n**Repository**: {6}\n\n**Commit Link**: {7}<br><br>""".format(commit_author_name,committer_name,pusher_name,commit_message,commit_id,commit_time,repo_name,commit_url)
-            toSpark(results)
+            PostSpark(results)
             return 'Ok'
             
         elif 'commit_comment' == headers.get('X-GitHub-Event'):
@@ -51,7 +51,7 @@ def githubCommits():
             comment = comment_raw['body']
             comment_repo = json_file['repository']['name']
             results = """**User**: {0}\n\n**Comment on Commit**: {1}\n\n**Comment url**: {2}\n\n**Commit id**: {3}\n\n**Repository**: {4}<br><br>""".format(comment_user,comment,comment_url,commit_id,comment_repo)
-            toSpark(results)
+            PostSpark(results)
             return 'Ok'
      
     else:
@@ -60,7 +60,7 @@ def githubCommits():
         
         
 # POST Function  that sends the commits & comments in markdown to a Spark room    
-def toSpark(commits):
+def PostSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
     headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer BOT_TOKEN'}
     values =   {'roomId':'YOUR_ROOM_ID', 'markdown': commits }
