@@ -1,9 +1,9 @@
 # GithubBot
 
-Simple Github Bot for [Cisco Spark](https://developer.ciscospark.com/)
+Simple Github Bot for [Cisco Spark](https://developer.webex.com/)
 
 
-The bot listens for commits and comments on a particular repo, and then posts the details into a group or team room. The below parameters will be included in the message to a Spark room:
+The bot listens for commits and comments on a particular repo, and then posts the details into a group or team room. The below parameters will be included in the message to a Webex Teams space:
 
     Author Name
     Committer Name
